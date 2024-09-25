@@ -14,6 +14,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [], // Mengaktifkan plugin scrollbar,
 };
 export default config;

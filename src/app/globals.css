@@ -2,26 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* app/globals.css */
+
+/* Mengatasi styling autocomplete untuk Chrome/Safari (webkit browsers) */
+input:-webkit-autofill {
+  background-color: transparent !important;
+  color: white !important; /* Pastikan warna teks tetap putih */
+  transition: background-color 5000s ease-in-out 0s;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+input:-webkit-autofill::first-line {
+  color: white !important; /* Kadang warna teks perlu diatur secara eksplisit */
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+/* Opsional: Mengatasi style untuk Firefox */
+input:-moz-autofill {
+  background-color: transparent !important;
+  color: white !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: linear-gradient(#1f2937, #00ffff);
+  /* background: #009688; Warna handle (teal) */
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
